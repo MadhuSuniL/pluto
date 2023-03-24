@@ -18,5 +18,6 @@ from django.urls import path
 from response.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('get_res',SendRes.as_view())
+    path('get_res',SendRes.as_view()),
+    path('get_news/',GetNews.as_view())
 ]

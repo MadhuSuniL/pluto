@@ -5,6 +5,8 @@ from .extras.word_explanation import explain
 from rest_framework.serializers import Serializer
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from .extras.news import get_today_news
+from rest_framework.response import Response
 # Create your views here.
 
 class se(Serializer):
@@ -15,7 +17,8 @@ class SendRes(GenericAPIView):
     serializer_class = se
     def post(self,request):
         input_ = request.data['key']
-        data = explain(input_)
+        lang_ = request.data['lang']
+        data = explain(input_,lang_)
         if data is None:
             data = {
                 'key':input_,
@@ -25,3 +28,22 @@ class SendRes(GenericAPIView):
         return JsonResponse(data)
         
 
+class GetNews(GenericAPIView):
+    serializer_class = se
+    queryset = User.objects.all()
+    
+    def get(self,request):
+        data = get_today_news()
+        new_data = []
+        for img , head , cont in zip(data['images'],data['headlines'],data['contents']):
+            obj = {
+                'img':img,
+                'head':head,
+                'cont':cont
+            }
+            new_data.append(obj)
+        
+        return Response(new_data)
+    
+    
+    
