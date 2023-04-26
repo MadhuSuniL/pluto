@@ -32,18 +32,19 @@ class GetNews(GenericAPIView):
     serializer_class = se
     queryset = User.objects.all()
     
-    def get(self,request):
-        data = get_today_news()
-        new_data = []
-        for img , head , cont in zip(data['images'],data['headlines'],data['contents']):
-            obj = {
-                'img':img,
-                'head':head,
-                'cont':cont
-            }
-            new_data.append(obj)
+    def post(self,request):
+        type_ = request.data['type']
+        data = get_today_news(type_)
+        # new_data = []
+        # for img , head , cont in zip(data['images'],data['headlines'],data['contents']):
+        #     obj = {
+        #         'img':img,
+        #         'head':head,
+        #         'cont':cont
+        #     }
+        #     new_data.append(obj)
         
-        return Response(new_data)
+        return Response(data)
     
     
     

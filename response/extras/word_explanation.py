@@ -21,10 +21,12 @@ def explain(word,lang_):
         except:
             extra = None
         if extra is not None:
-            extras = 'You may search about these things also...\n\n'
-        if len(extra) > 6 and extra is not None:
-            extra = extra[0:10]
-            
+            extras = 'You may search about these lines also...\n\n'
+        try:
+            if len(extra) > 6 and extra is not None:
+                extra = extra[0:10]
+        except:
+            pass
         # if extra is not None:
         #     for val in extra:
         #         extras += val + ', \n'
