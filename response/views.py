@@ -7,6 +7,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from .extras.news import get_today_news
 from rest_framework.response import Response
+from .extras.gold import * 
 # Create your views here.
 
 class se(Serializer):
@@ -46,5 +47,22 @@ class GetNews(GenericAPIView):
         
         return Response(data)
     
+class GetPrices(GenericAPIView):
+    serializer_class = se
+    queryset = User.objects.all()
+    
+    def get(self,request):
+        
+        data = {
+            'gold':GOLD(),
+            'BTC':'₹ '+BTC(),
+            'GBP':'₹ '+GBP(),
+            'EUR':'₹ '+EUR(),
+            'USD':'₹ '+USD(),
+            'AUD':'₹ '+AUD()
+        }
+      
+        return Response(data)
     
     
+
