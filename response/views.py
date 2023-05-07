@@ -19,7 +19,7 @@ class SendRes(GenericAPIView):
     def post(self,request):
         input_ = request.data['key']
         lang_ = request.data['lang']
-        # print('.........',input_,lang_)
+        print('.........',input_,lang_)
         data = explain(input_,lang_)
         if data is None:
             data = {
