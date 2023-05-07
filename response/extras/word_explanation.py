@@ -32,10 +32,8 @@ def explain(word,lang_):
         #         extras += val + ', \n'
         #     extra = extras
 
-        value2 = translate(value, lang_) 
+        value = translate(value, lang_) 
         key2 = translate(key, lang_)
-        if value2 != 'Server is busy..! try after sometime.':
-            value = value2
         
         if key2 in value or key2.title() in value:
             value = value.replace(key, f'<span class="text-white font-extrabold text-xl">{key}</span>')

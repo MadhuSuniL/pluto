@@ -1,46 +1,24 @@
-from googletrans import Translator
-
+# from googletrans import Translator
+from textblob.translate import Translator
+import re
 translator = Translator()
 
-#telugu - te
-#hindi - hi
-#english - en
-#tamil - tamil
-#chinese - zh-cn
-#kannada - kn
-#malayalam - ml
-#tukish - tr
-#urdu - ur
-#arbic - ar
 
-# import googletrans
-# print(googletrans.LANGUAGES)
+def preproccess_text(text):
+    text = ''.join(c for c in text if c.isascii())
+    cleaned_text = re.sub(r'\[[^\]]*\]', '', text)
+    return cleaned_text
 
 
 def translate(text,to_lang):
+    text = preproccess_text(text)
+
     if 'en' in to_lang:
         return text
-    safe = to_lang
-    to_lang = to_lang.split(' ')
     try:
-        translated_text = translator.translate(text, src='en', dest = to_lang[0])
+        return translator.translate(text, from_lang='en', to_lang=to_lang)
     except:
-        return 'Server is busy..! try after sometime.'
-    # print(f"The Actual Text was {text}")
-    # print(f"The Translated Text is: {translated_text.text}")
-    # print(f"The Translated Text pronunciation is {translated_text.pronunciation}")
-
-    if(translated_text.text.lower() == text.lower() or translated_text.pronunciation.lower() == text.lower()):
-        return translate('Could not translated..!', safe)
-
-    if(to_lang[1] == 'n'):
-        return translated_text.text
-    else:
-        return translated_text.pronunciation
-    
-# a = translate('Hello how are you', 'ur n')
-
-# print(a)
+        return text
 
 
 
