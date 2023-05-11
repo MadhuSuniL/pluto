@@ -1,6 +1,7 @@
 import wikipedia as wk
 from .get_image import image
 from .translate import translate , para_wise 
+from .voice import voice
 def explain(word,lang_):
         if word == 'python' or word == 'Python':
             word = 'Python (programming language)'
@@ -48,7 +49,8 @@ def explain(word,lang_):
         'key':key,
         'img':img,
         'value':value,
-        'extra':extra
+        'extra':extra,
+        # 'audio': voice('what is programming language')
         }
         return data
     # except:
