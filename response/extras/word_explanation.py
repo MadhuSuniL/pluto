@@ -1,5 +1,7 @@
 import wikipedia as wk
 from .get_image import image
+import time
+
 from .translate import translate , para_wise 
 from .voice import voice
 def explain(word,lang_):
@@ -46,6 +48,7 @@ def explain(word,lang_):
             pass
         
         data = {
+        'id':str(time.time()),
         'key':key,
         'img':img,
         'value':value,
