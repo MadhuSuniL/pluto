@@ -22,7 +22,7 @@ class SendRes(GenericAPIView):
         lang_ = request.data['lang']
         print('.........',input_,lang_)
         data = GetRes(input_.strip(),lang_)
-        print(data)
+
         if data is None:
             data = {
                 'key':input_,

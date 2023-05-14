@@ -1,5 +1,6 @@
 import re , calendar
 from . import cal_time_date_funtions
+from . import horoscope_funtions
 import time
 from response.extras.word_explanation import explain
 
@@ -198,10 +199,31 @@ def check(promt,lang):
             return data
         except:
             return 'If you are trying to get the calendar for in specific year, you can send a message in the following format: <br> <center>calendar for year yyyy</center> <br>where "<b>yyyy</b>" is the year. This message will tell the program to retrieve the calendar for specific year. <br> <br> However,<br> <span style="color:red;">"I could not find the calendar because the given year is invalid.</span>'
+    
+                    #Name & Birthday
+    elif ('name:' in promt and 'birthday:' in promt) or ('name :' in promt and 'birthday :' in promt):
+        try:
+            date = re.findall(r'\b(\d{4})[-\/\s\.](\d{1,2})[-\/\s\.](\d{1,2})\b', promt)
+            year, month, date = date[0]
+            base = alphabets_with_space = [chr(x) for x in range(97, 123)] + [' ']
+            name = ''
+            for char in promt.replace('name:','').replace('name :','').replace('birthday:','').replace('birthday :',''):
+                if char in base:
+                    name+=char
+            data = {
+            'id':str(time.time()),
+            'key':f"Name-Birthdate Info",
+            'img':'no-img',
+            'value':horoscope_funtions.horoscope(name,int(year),int(month),int(date)+1),
+            'copy':'nothing',
+            'extra':['sample'+str(x) for x in range(1,6)],
+            }
+            return data        
+        except :
+            return "n-none"
     else:
         return explain(promt,lang)
 
-# print(check('calendar for year 20004 05'))
     
     
     

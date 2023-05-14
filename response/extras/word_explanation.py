@@ -1,7 +1,7 @@
 import wikipedia as wk
 from .get_image import image
-import time
-
+import time, random
+from sources.name_patterns import sorry
 from .translate import translate , para_wise 
 from .voice import voice
 def explain(word,lang_):
@@ -15,7 +15,7 @@ def explain(word,lang_):
         try :
             value = wk.summary(word)
         except:
-            value = "I am sorry i could't found the result. Please check spellings or try in another way(with new words)."
+            value = random.choice(sorry)
             img = 'none'
         try:
             extra = wk.search(word)
