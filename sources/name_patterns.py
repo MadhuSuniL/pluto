@@ -94,4 +94,113 @@ sorry= [
     "I'm afraid I cannot help you with that query as it is not within my area of expertise."
 ]
 
-hello = [    "Hello! How can I assist you today?",    "Welcome back! What can I help you with?",    "Nice to see you again! What can I do for you today?",    "Hi there! How may I be of service?",    "Greetings! What brings you here today?",    "Welcome! I'm here to help. What do you need assistance with?",    "Hello, and welcome to [your company/brand]! How can I assist you?",    "Hey, great to have you here! What can I do to assist you today?",    "Hi, welcome to our chatbot! What can I help you with?",    "Good to see you! How may I be of assistance?",    "Hi! It's great to have you here. How can I assist you?",    "Welcome back! What can I help you with today?",    "Greetings! I'm here to help. What can I do for you?",    "Hello, and welcome to our chatbot. How may I be of assistance?",    "Nice to see you again! What can I help you with today?",    "Welcome to [your company/brand], how can I assist you?",    "Hi there! I'm here to help you with anything you need. What can I do for you?",    "Hello and welcome! How can I make your experience better?",    "Welcome to our chatbot! What can I help you with today?",    "Hi, it's great to have you here! How can I assist you today?"]
+fake_vars = ['aadhaar_card_number', 'aba', 'address', 'administrative_unit', 'am_pm', 'android_platform_token', 'ascii_company_email', 'ascii_email', 'ascii_free_email', 'ascii_safe_email', 'bank_country', 'basic_phone_number', 'bban', 'binary', 'boolean', 'bothify', 'bs', 'building_number', 'catch_phrase', 'century', 'chrome', 'city', 'city_prefix', 'city_suffix', 'color', 'color_name', 'company', 'company_email', 'company_suffix', 'coordinate', 'country', 'country_calling_code', 'country_code', 'credit_card_expire', 'credit_card_full', 'credit_card_number', 'credit_card_provider', 'credit_card_security_code', 'cryptocurrency', 'cryptocurrency_code', 'cryptocurrency_name', 'csv', 'currency', 'currency_code', 'currency_name', 'currency_symbol', 'current_country', 'current_country_code', 'date', 'date_between', 'date_between_dates', 'date_object', 'date_of_birth', 'date_this_century', 'date_this_decade', 'date_this_month', 'date_this_year', 'date_time', 'date_time_ad', 'date_time_between', 'date_time_between_dates', 'date_time_this_century', 'date_time_this_decade', 'date_time_this_month', 'date_time_this_year', 'day_of_month', 'day_of_week', 'dga', 'domain_name', 'domain_word', 'dsv', 'ean', 'ean13', 'ean8', 'ein', 'email', 'emoji', 'file_extension', 'file_name', 'file_path', 'firefox', 'first_name', 'first_name_female', 'first_name_male', 'first_name_nonbinary', 'fixed_width', 'free_email', 'free_email_domain', 'future_date', 'future_datetime', 'get_providers', 'hex_color', 'hexify', 'hostname', 'http_method', 'iana_id', 'iban', 'image', 'image_url', 'internet_explorer', 'invalid_ssn', 'ios_platform_token', 'ipv4', 'ipv4_address', 'ipv4_network_class', 'ipv4_private', 'ipv4_public', 'ipv6', 'ipv6_address', 'isbn10', 'isbn13', 'iso8601', 'items', 'itin', 'job', 'json', 'json_bytes', 'language_code', 'language_name', 'last_name', 'last_name_female', 'last_name_male', 'last_name_nonbinary', 'latitude', 'latlng', 'lexify', 'license_plate', 'linux_platform_token', 'linux_processor', 'local_latlng', 'locale', 'localized_ean', 'localized_ean13', 'localized_ean8', 'location_on_land', 'longitude', 'mac_address', 'mac_platform_token', 'mac_processor', 'md5', 'military_apo', 'military_dpo', 'military_ship', 'military_state', 'mime_type', 'month', 'month_name', 'msisdn', 'name', 'name_female', 'name_male', 'name_nonbinary', 'nic_handle', 'nic_handles', 'null_boolean', 'numerify', 'opera', 'paragraph', 'paragraphs', 'password', 'past_date', 'past_datetime', 'phone_number', 'port_number', 'postalcode', 'postalcode_in_state', 'postalcode_plus4', 'postcode', 'postcode_in_state', 'prefix', 'prefix_female', 'prefix_male', 'prefix_nonbinary', 'pricetag', 'profile', 'psv', 'pybool', 'pydecimal', 'pydict', 'pyfloat', 'pyint', 'pyiterable', 'pylist', 'pyobject', 'pyset', 'pystr', 'pystr_format', 'pystruct', 'pytimezone', 'pytuple', 'random_choices', 'random_digit', 'random_digit_not_null', 'random_digit_not_null_or_empty', 'random_digit_or_empty', 'random_element', 'random_elements', 'random_int', 'random_letter', 'random_letters', 'random_lowercase_letter', 'random_number', 'random_sample', 'random_uppercase_letter', 'randomize_nb_elements', 'rgb_color', 'rgb_css_color', 'ripe_id', 'safari', 'safe_color_name', 'safe_domain_name', 'safe_email', 'safe_hex_color', 'sbn9', 'secondary_address', 'seed_instance', 'sentence', 'sentences', 'sha1', 'sha256', 'simple_profile', 'slug', 'ssn', 'state', 'state_abbr', 'street_address', 'street_name', 'street_suffix', 'suffix', 'suffix_female', 'suffix_male', 'suffix_nonbinary', 'swift', 'swift11', 'swift8', 'tar', 'text', 'texts', 'time', 'time_delta', 'time_object', 'time_series', 'timezone', 'tld', 'tsv', 'unix_device', 'unix_partition', 'unix_time', 'upc_a', 'upc_e', 'uri', 'uri_extension', 'uri_page', 'uri_path', 'url', 'user_agent', 'user_name', 'uuid4', 'windows_platform_token', 'word', 'words', 'year', 'zip', 'zipcode', 'zipcode_in_state', 'zipcode_plus4']
+
+
+joke_categories = [
+    "Programming",
+    "Miscellaneous",
+    "Pun",
+    "Spooky",
+    "Christmas"
+]
+
+cards = ('Ace of Spades', '2 of Spades', '3 of Spades', '4 of Spades', '5 of Spades', '6 of Spades', '7 of Spades', '8 of Spades', '9 of Spades', '10 of Spades', 'Jack of Spades', 'Queen of Spades', 'King of Spades', 'Ace of Hearts', '2 of Hearts', '3 of Hearts', '4 of Hearts', '5 of Hearts', '6 of Hearts', '7 of Hearts', '8 of Hearts', '9 of Hearts', '10 of Hearts', 'Jack of Hearts', 'Queen of Hearts', 'King of Hearts', 'Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4 of Diamonds', '5 of Diamonds', '6 of Diamonds', '7 of Diamonds', '8 of Diamonds', '9 of Diamonds', '10 of Diamonds', 'Jack of Diamonds', 'Queen of Diamonds', 'King of Diamonds', 'Ace of Clubs', '2 of Clubs', '3 of Clubs', '4 of Clubs', '5 of Clubs', '6 of Clubs', '7 of Clubs', '8 of Clubs', '9 of Clubs', '10 of Clubs', 'Jack of Clubs', 'Queen of Clubs', 'King of Clubs')
+card_patterns = (
+    "Here is a random card: {card_name}",    "You got the {card_name}!",
+    "The selected card is: {card_name}",
+    "Behold! The card of the day is: {card_name}",
+    "And the winner is... {card_name}!",
+    "You drew the {card_name}!",
+    "It's a lucky day! The card you picked is {card_name}.",
+    "The magic card is revealed: {card_name}!",
+    "In the game of cards, fortune favors the {card_name}.",
+    "The universe has spoken, presenting you with the {card_name}.",
+    "Behold the power of the {card_name}!",
+    "Your fate lies in the {card_name}.",
+    "A whisper in the wind reveals the {card_name}.",
+    "The {card_name} holds the key to your destiny.",
+    "Gather 'round and witness the marvel that is the {card_name}!",
+    "Luck smiles upon you with the {card_name}.",
+    "With the turn of a card, your future is unveiled: {card_name}.",
+    "The stars align, and the {card_name} emerges.",
+    "The realm of possibilities expands with the presence of the {card_name}.",
+    "Enchantment fills the air as the {card_name} is revealed.",
+    "Through the deck of cards, destiny guides you to the {card_name}.",
+    "The {card_name} appears, illuminating your path forward.",
+    "Unlock the mysteries of life with the wisdom of the {card_name}.",
+    "A card worth remembering: the legendary {card_name}.",
+    "Embrace the power and beauty of the {card_name}."
+)
+coin_toss_patterns = (
+    "You got: {outcome}!",
+    "It's a {outcome}!",
+    "The coin landed on: {outcome}.",
+    "And the result is... {outcome}!",
+    "You flipped: {outcome}.",
+    "The outcome is: {outcome}.",
+    "The coin reveals: {outcome}!",
+    "It's {outcome} this time!",
+    "The coin settles on: {outcome}.",
+    "You called {outcome} and it's correct!",
+    "The coin shows: {outcome}.",
+    "It's a clear {outcome}!",
+    "The verdict is {outcome}.",
+    "You are blessed with {outcome}!",
+    "The coin whispers: {outcome}.",
+    "Behold, {outcome}!",
+    "The universe decides: {outcome}.",
+    "In the realm of chance, {outcome} shines.",
+    "Your destiny is {outcome}!",
+    "The fates decree: {outcome}!"
+)
+dice_patterns = (
+    "You rolled a {dice_value}!",
+    "You got {dice_value} on the dice!",
+    "The dice shows {dice_value}.",
+    "Behold! The roll of the day is {dice_value}!",
+    "And the winner is... {dice_value}!",
+    "You rolled the lucky number {dice_value}!",
+    "It's a fortunate day! The dice shows {dice_value}.",
+    "The magical dice reveals {dice_value}!",
+    "Luck favors you with {dice_value}.",
+    "The universe has spoken, presenting you with {dice_value}.",
+    "Behold the power of {dice_value}!",
+    "Your fate lies in {dice_value}.",
+    "A sign from the dice: {dice_value}!",
+    "The dice holds the key to your destiny: {dice_value}.",
+    "Gather 'round and witness the marvel of {dice_value}!",
+    "Luck smiles upon you with {dice_value}.",
+    "The roll unveils your future: {dice_value}.",
+    "The stars align, and {dice_value} appears.",
+    "The realm of possibilities expands with {dice_value}.",
+    "Enchantment fills the air as {dice_value} is revealed.",
+    "Through the roll of the dice, destiny guides you to {dice_value}.",
+    "The dice shows {dice_value}, illuminating your path forward.",
+    "Unlock the mysteries of life with the wisdom of {dice_value}.",
+    "A roll worth remembering: {dice_value}.",
+    "Embrace the luck and excitement of {dice_value}!"
+)
+
+number_patterns = (
+    "Here are the {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+    "The {number_category} numbers between <b>{start}</b> and <b>{end}</b> are:<br>",
+    "Behold, the magnificent {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Unlock the secrets of {number_category} numbers between <b>{start}</b> and <b>{end}</b>:<br>",
+    "In the realm of numbers, the {number_category} ones from <b>{start}</b> to <b>{end}</b> are:<br>",
+    "Witness the beauty of {number_category} numbers as we reveal those from <b>{start}</b> to <b>{end}</b>:<br>",
+    "The mysterious sequence of {number_category} numbers between <b>{start}</b> and <b>{end}</b> is:<br>",
+    "Prepare to be amazed by the {number_category} numbers we've discovered from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Explore the fascinating world of {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Gather around and marvel at the {number_category} numbers revealed, spanning from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Attention! Here are the {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Calling all number enthusiasts! Feast your eyes on the {number_category} numbers between <b>{start}</b> and <b>{end}</b>:<br>",
+    "Ready or not, here come the {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Prepare yourself for the {number_category} numbers that lie within <b>{start}</b> and <b>{end}</b>:<br>",
+    "Let's embark on a journey to discover the {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Attention, number lovers! The {number_category} numbers from <b>{start}</b> to <b>{end}</b> are:<br>",
+    "Get ready to explore the world of {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Calling all math enthusiasts! Brace yourself for the {number_category} numbers between <b>{start}</b> and <b>{end}</b>:<br>",
+    "Unveiling the magnificent {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+    "Prepare for a mind-boggling experience with the {number_category} numbers from <b>{start}</b> to <b>{end}</b>:<br>",
+)

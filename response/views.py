@@ -8,7 +8,9 @@ from django.contrib.auth.models import User
 from .extras.news import get_today_news
 from rest_framework.response import Response
 from .extras.gold import * 
+import random
 from sources.checks import GetRes
+from sources.name_patterns import sorry
 # Create your views here.
 
 class se(Serializer):
@@ -25,9 +27,13 @@ class SendRes(GenericAPIView):
 
         if data is None:
             data = {
-                'key':input_,
-                'value': "I am sorry i could't found the result. Please check spellings or try in another way(with new words)." 
-            }
+                    'id':str(time.time()),
+                    'key':input_,
+                    'img':'none',
+                    'value':random.choice(sorry),
+                    'copy':'',
+                    'extra':['sample'+str(x) for x in range(1,6)],
+                }
             return JsonResponse(data)        
         
         return JsonResponse(data)

@@ -1,16 +1,36 @@
 import re , calendar
 from . import cal_time_date_funtions
 from . import horoscope_funtions
+from . import fake_funtions
+from . import my_funtions
+from .joke_funtions import get_joke
 import time
 from response.extras.word_explanation import explain
+from .name_patterns import fake_vars
+from .name_patterns import joke_categories
+from . import number_funtions
 
 days_list = calendar.day_name[0:]
+fake_vars_list = fake_vars
 
+def fake_exist(string):
+    string = string.replace(' ','_')
+    for var in fake_vars_list:
+        if var in string:
+            return True
+        else:
+            pass
+    return False
 
+def check_num(string):
+    for i in range(0,9):
+        if str(i) in string:
+            return True
+    return False
 
 def check(promt,lang):
     promt = promt.lower().strip()
-    if (promt == 'datetime' or promt == 'current datetime'):
+    if (promt == 'datetime' or promt == 'current datetime' or promt =='today date'):
         data = {
         'id':str(time.time()),
         'key':'Current Date & Time',
@@ -200,7 +220,10 @@ def check(promt,lang):
         except:
             return 'If you are trying to get the calendar for in specific year, you can send a message in the following format: <br> <center>calendar for year yyyy</center> <br>where "<b>yyyy</b>" is the year. This message will tell the program to retrieve the calendar for specific year. <br> <br> However,<br> <span style="color:red;">"I could not find the calendar because the given year is invalid.</span>'
     
+    
                     #Name & Birthday
+    
+    
     elif ('name:' in promt and 'birthday:' in promt) or ('name :' in promt and 'birthday :' in promt):
         try:
             date = re.findall(r'\b(\d{4})[-\/\s\.](\d{1,2})[-\/\s\.](\d{1,2})\b', promt)
@@ -221,9 +244,193 @@ def check(promt,lang):
             return data        
         except :
             return "n-none"
+        
+        
+                                # Fake Values
+        
+        
+        
+    elif 'fake' in promt and fake_exist(promt):
+        promt = promt.replace(' ','_')
+    
+        for var in fake_vars:
+            if var in promt:
+                res = fake_funtions.generate_fake_value(var)
+                return {
+                'id':str(time.time()),
+                'key':f"Fake-{var.title().replace('_',' ')}",
+                'img':'no-img',
+                'value':res[0],
+                'copy':str(res[1]),
+                'extra':['sample'+str(x) for x in range(1,6)],
+                }
+            else:
+                pass
+        return {
+                'id':str(time.time()),
+                'key':f"fake-value generate",
+                'img':'no-img',
+                'value':'no-content',
+                'copy':'',
+                'extra':['sample'+str(x) for x in range(1,6)],
+                }   
+     
+     
+                # Jokes 
+     
+     
+    elif 'tell' in promt or 'say' in promt and 'joke' in promt:
+        for cat in joke_categories:
+            if cat.lower() in promt:
+                data = {
+                    'id':str(time.time()),
+                    'key':f"Joke on {cat.title()}",
+                    'img':'no-img',
+                    'value':get_joke(cat.title()),
+                    'copy':'',
+                    'extra':['sample'+str(x) for x in range(1,6)],
+                }
+                return data 
+            else:
+                data = {
+                    'id':str(time.time()),
+                    'key':f"Joke on Random Category",
+                    'img':'no-img',
+                    'value':get_joke(None),
+                    'copy':'',
+                    'extra':['sample'+str(x) for x in range(1,6)],
+                }
+                return data
+            
+            
+                    # number funtions
+    elif 'explain' in promt or 'desc' in promt and 'number' in promt and check_num(promt):        
+        numbers = re.findall(r'\d+', promt)
+        data = {
+                'id':str(time.time()),
+                'key':f"Describing Number {numbers[0]}",
+                'img':'no-img',
+                'value':number_funtions.explain_number(numbers[0]),
+                'copy':'',
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        return data
+    
+    elif 'even' in promt and 'numbers' in promt and (('from' in promt and 'to' in promt) or ('-' in promt ) or ('between' in promt )) and check_num(promt):
+        numbers = re.findall(r'\d+', promt)
+        data = {
+                'id':str(time.time()),
+                'key':f"Even Numbers Between {int(min(numbers))} to {int(max(numbers))}",
+                'img':'no-img',
+                'value':number_funtions.even_numbers(int(min(numbers)), int(max(numbers))),
+                'copy':number_funtions.even_numbers(int(min(numbers)), int(max(numbers))),
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        return data
+    
+    elif 'odd' in promt and 'numbers' in promt and (('from' in promt and 'to' in promt) or ('-' in promt ) or ('between' in promt )) and check_num(promt):
+        numbers = re.findall(r'\d+', promt)
+        data = {
+                'id':str(time.time()),
+                'key':f"Odd Numbers Between {min(numbers)} to {max(numbers)}",
+                'img':'no-img',
+                'value':number_funtions.odd_numbers(int(min(numbers)), int(max(numbers))),
+                'copy':number_funtions.odd_numbers(int(min(numbers)), int(max(numbers))),
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        return data
+    
+    elif 'prime' in promt and 'numbers' in promt and (('from' in promt and 'to' in promt) or ('-' in promt ) or ('between' in promt )) and check_num(promt):
+        numbers = re.findall(r'\d+', promt)
+        data = {
+                'id':str(time.time()),
+                'key':f"Prime Numbers Between {min(numbers)} to {max(numbers)}",
+                'img':'no-img',
+                'value':number_funtions.prime_numbers(int(min(numbers)), int(max(numbers))),
+                'copy':number_funtions.prime_numbers(int(min(numbers)), int(max(numbers))),
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        return data
+    
+    elif 'fibonacci' in promt and 'numbers' in promt and (('from' in promt and 'to' in promt) or ('-' in promt ) or ('between' in promt )) and check_num(promt):
+        numbers = re.findall(r'\d+', promt)
+        data = {
+                'id':str(time.time()),
+                'key':f"Fibonacci Numbers Between {min(numbers)} to {max(numbers)}",
+                'img':'no-img',
+                'value':number_funtions.fibonacci_numbers(int(min(numbers)), int(max(numbers))),
+                'copy':number_funtions.fibonacci_numbers(int(min(numbers)), int(max(numbers))),
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        return data
+    
+                            #my funtions
+                            
+    elif 'table' in promt and 'math' in promt or 'write' in promt or 'generate' in promt:
+        num = re.findall(r'\d+', promt)
+        num = int(num[0])
+        data = {
+                'id':str(time.time()),
+                'key':f"Math Table for {num}",
+                'img':'no-img',
+                'value':number_funtions.table(num),
+                'copy':'',
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        
+        return data
+    
+    elif 'roll dice' == promt:
+        data = {
+                'id':str(time.time()),
+                'key':f"Dice",
+                'img':'no-img',
+                'value':my_funtions.dice(),
+                'copy':'',
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        return data
+    
+    elif 'toss' == promt or 'spin coin' in promt or 'heads or tales' in promt or 'heads and tales' in promt:
+        data = {
+                'id':str(time.time()),
+                'key':f"Toss",
+                'img':'no-img',
+                'value':my_funtions.toss(),
+                'copy':'',
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        return data
+    
+    elif 'random card' == promt or 'pick a random card' in promt or ('card' in promt and 'get' in promt or 'select' in promt or 'pick' in promt or 'show' in promt or 'random' in promt):
+        data = {
+                'id':str(time.time()),
+                'key':f"Random Card",
+                'img':'no-img',
+                'value':my_funtions.card(),
+                'copy':'',
+                'extra':['sample'+str(x) for x in range(1,6)],
+            }
+        return data
+    
+    
     else:
         return explain(promt,lang)
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
