@@ -103,32 +103,34 @@ def prime_factorization(num):
     return factors
 
 def table(num):
-    table_string = ''
-    table_patterns = (
-    f"Here is the <b>{num}</b>th math table:",
-    f"I have the <b>{num}</b>th math table for you:",
-    f"Let's look at the <b>{num}</b>th math table:",
-    f"The <b>{num}</b>th math table is as follows:",
-    f"Here's the table for <b>{num}</b>:",
-    f"Behold the <b>{num}</b>th math table:",
-    f"Prepare to witness the <b>{num}</b>th math table:",
-    f"Unlocking the secrets of the <b>{num}</b>th math table:",
-    f"The <b>{num}</b>th math table holds valuable information:",
-    f"Exploring the depths of the <b>{num}</b>th math table:",
-    f"Unveiling the mysteries of the <b>{num}</b>th math table:",
-    f"Discovering the patterns in the <b>{num}</b>th math table:",
-    f"Behold, the majestic <b>{num}</b>th math table:",
-    f"Embark on a journey through the <b>{num}</b>th math table:",
-    f"Prepare to be amazed by the <b>{num}</b>th math table:",
-    f"Let's delve into the <b>{num}</b>th math table:",
-    f"The <b>{num}</b>th math table awaits your attention:",
-    f"Unlocking the power of the <b>{num}</b>th math table:",
-    f"Behold the beauty of the <b>{num}</b>th math table:",
-    f"Delving into the wonders of the <b>{num}</b>th math table:"    )
-
-    for i in range(1,11):
-        table_string+= f"<h1 class='text-center text-xl'>{num} X {i} = {num*i}</h1><br>"
-    return random.choice(table_patterns)+'<br><br>'+table_string 
+    try:
+        table_string = ''
+        table_patterns = (
+        f"Here is the <b>{num}</b>th math table:",
+        f"I have the <b>{num}</b>th math table for you:",
+        f"Let's look at the <b>{num}</b>th math table:",
+        f"The <b>{num}</b>th math table is as follows:",
+        f"Here's the table for <b>{num}</b>:",
+        f"Behold the <b>{num}</b>th math table:",
+        f"Prepare to witness the <b>{num}</b>th math table:",
+        f"Unlocking the secrets of the <b>{num}</b>th math table:",
+        f"The <b>{num}</b>th math table holds valuable information:",
+        f"Exploring the depths of the <b>{num}</b>th math table:",
+        f"Unveiling the mysteries of the <b>{num}</b>th math table:",
+        f"Discovering the patterns in the <b>{num}</b>th math table:",
+        f"Behold, the majestic <b>{num}</b>th math table:",
+        f"Embark on a journey through the <b>{num}</b>th math table:",
+        f"Prepare to be amazed by the <b>{num}</b>th math table:",
+        f"Let's delve into the <b>{num}</b>th math table:",
+        f"The <b>{num}</b>th math table awaits your attention:",
+        f"Unlocking the power of the <b>{num}</b>th math table:",
+        f"Behold the beauty of the <b>{num}</b>th math table:",
+        f"Delving into the wonders of the <b>{num}</b>th math table:"    )
+        for i in range(1,11):
+            table_string+= f"<h1 class='text-center text-xl'>{num} X {i} = {num*i}</h1><br>"
+        return random.choice(table_patterns)+'<br><br>'+table_string 
+    except:
+        return 'Please provide number to generate math table'
 
 def even_numbers(from_,to_):
     even_numbers_list = []

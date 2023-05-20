@@ -1,6 +1,8 @@
 # from googletrans import Translator
 from textblob.translate import Translator
 import re
+from textblob import TextBlob
+
 translator = Translator()
 
 
@@ -9,6 +11,11 @@ def preproccess_text(text):
     cleaned_text = re.sub(r'\[[^\]]*\]', '', text)
     return cleaned_text
 
+def detect_language(text):
+    blob = TextBlob(text)
+    language_code = blob.detect_language()
+    return language_code
+
 
 def translate(text,to_lang):
     text = preproccess_text(text)
@@ -16,7 +23,7 @@ def translate(text,to_lang):
     if 'en' in to_lang:
         return text
     try:
-        return translator.translate(text, from_lang='en', to_lang=to_lang)
+        return translator.translate(text, to_lang=to_lang)
     except:
         return text
 

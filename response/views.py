@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from .extras.news import get_today_news
 from rest_framework.response import Response
 from .extras.gold import * 
-import random
+import random, time
 from sources.checks import GetRes
 from sources.name_patterns import sorry
 # Create your views here.
@@ -21,7 +21,7 @@ class SendRes(GenericAPIView):
     serializer_class = se
     def post(self,request):
         input_ = request.data['key']
-        lang_ = request.data['lang']
+        lang_ = request.data.get('lang','en')
         print('.........',input_,lang_)
         data = GetRes(input_.strip(),lang_)
 
@@ -34,9 +34,9 @@ class SendRes(GenericAPIView):
                     'copy':'',
                     'extra':['sample'+str(x) for x in range(1,6)],
                 }
-            return JsonResponse(data)        
+            return JsonResponse(data,safe=False)        
         
-        return JsonResponse(data)
+        return JsonResponse(data,safe=False)
         
 
 # class GetNews(GenericAPIView):

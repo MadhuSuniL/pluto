@@ -41,14 +41,15 @@ def current_time_all():
 
 def weekday(string):
     # weekday for 'yyyy mm dd'
-    try:
+    # try:
         # print(string)
+        print(string.split())
         year, month, date = string.split()
         # print(year,month,date)
         day = calendar.weekday(int(year), int(month), int(date))
         return f'The week day for <b>{year}-{month}-{date}</b> is <b class="text-2xl">{days_list[day]}</b>'    
-    except:
-        return 'If you are trying to get the weekday of a specific date, then you can send a message in the following format: <br> <b><center>"weekday for yyyy mm dd"</center></b> <br>where "<b>yyyy</b>" is the <b>year</b>, "<b>mm</b>" is the <b>month</b>, and "<b>dd</b>" is the <b>day</b> of the month for the date you want to find the weekday for. This message will tell the program to retrieve the weekday of the specified date.<br><br> However,<br> <span class="text-red-400">I could not find weekday because given date is invalid </span>'
+    # except:
+    #     return 'If you are trying to get the weekday of a specific date, then you can send a message in the following format: <br> <b><center>"weekday for yyyy mm dd"</center></b> <br>where "<b>yyyy</b>" is the <b>year</b>, "<b>mm</b>" is the <b>month</b>, and "<b>dd</b>" is the <b>day</b> of the month for the date you want to find the weekday for. This message will tell the program to retrieve the weekday of the specified date.<br><br> However,<br> <span class="text-red-400">I could not find weekday because given date is invalid </span>'
 
 def difference_between_dates(year1,month1,date1,year2,month2,date2):
     # differnece between dates yyyy mm dd and yyyy mm dd
