@@ -302,8 +302,15 @@ def check(promt,lang):
             }
             return data        
         except :
-            return "n-none"
-        
+            data = {
+            'id':str(time.time()),
+            'key':f"Name-Birthdate Info",
+            'img':'no-img',
+            'value':'Soo sorry i actually i could not find your name. Because i am asumming this name is invalid. Soon i will give response if it is valid name.',
+            'copy':'nothing',
+            'extra':['sample'+str(x) for x in range(1,6)],
+            }
+            return data        
         
                                 # Fake Values
         
